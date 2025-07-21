@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles d'accessibilité */
+.high-contrast {
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+}
+
+.high-contrast * {
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+  border-color: rgb(255 255 255 / 0.5) !important;
+}
+
+.high-contrast .bg-electric-600,
+.high-contrast .bg-electric-500 {
+  background-color: rgb(255 255 0 / var(--tw-bg-opacity)) !important;
+  color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
+}
+
+/* Modes daltoniens */
+.colorblind-protanopia {
+  filter: url('#protanopia-filter');
+}
+
+.colorblind-deuteranopia {
+  filter: url('#deuteranopia-filter');
+}
+
+.colorblind-tritanopia {
+  filter: url('#tritanopia-filter');
+}
+
+/* Navigation clavier */
+.keyboard-navigation *:focus {
+  outline: 3px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+}
+
+/* Animations réduites */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Variables CSS pour les animations */
+:root {
+  --animation-duration: 0.3s;
+  --transition-duration: 0.2s;
+}
+
+* {
+  animation-duration: var(--animation-duration);
+  transition-duration: var(--transition-duration);
+}
+
+/* Optimisations de performance */
+.slide-viewer img,
+.slide-viewer video {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.presentation-container {
+  contain: layout style paint;
+}
+
+/* Support pour les pointeurs */
+@media (pointer: coarse) {
+  button,
+  .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Styles pour les filtres daltoniens */
+svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* Amélioration du contraste pour les liens */
+a:focus,
+button:focus {
+  text-decoration: underline;
+}
+
+/* Styles pour les éléments interactifs */
+.interactive-element {
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+}
+
+.interactive-element:hover {
+  transform: scale(1.02);
+}
+
+.interactive-element:active {
+  transform: scale(0.98);
+}
+
+/* Optimisation pour les écrans haute résolution */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .high-dpi-optimized {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Styles pour le mode plein écran */
+.fullscreen-mode {
+  background: #000;
+  color: #fff;
+}
+
+.fullscreen-mode .slide-content {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  line-height: 1.4;
+}
+
+/* Animations fluides pour les transitions de diapositives */
+.slide-transition-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.slide-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity var(--animation-duration) ease, transform var(--animation-duration) ease;
+}
+
+.slide-transition-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-transition-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity var(--animation-duration) ease, transform var(--animation-duration) ease;
+}
+
+/* Styles pour les annotations */
+.annotation-canvas {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.annotation-canvas.drawing-mode {
+  pointer-events: all;
+  cursor: crosshair;
+}
+
+/* Optimisation pour les appareils tactiles */
+@media (hover: none) and (pointer: coarse) {
+  .hover-only {
+    display: none;
+  }
+  
+  .touch-friendly {
+    padding: 0.75rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Styles pour les indicateurs de chargement */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Styles pour les notifications */
+.notification {
+  animation: slideInFromTop var(--animation-duration) ease;
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Styles pour les barres de progression */
+.progress-bar {
+  transition: width var(--animation-duration) ease;
+}
+
+/* Optimisation pour l'impression */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-after: always;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+}

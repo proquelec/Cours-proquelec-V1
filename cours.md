@@ -4271,3 +4271,4 @@ Index
 •	Index
 Conclusion Générale
 Ces modules  pédagogiques ont été conçus pour fournir une formation complète et professionnelle sur les opérations électriques en basse et haute tension. Chaque module aborde des aspects spécifiques des rôles, responsabilités, procédures de sécurité, et compétences nécessaires pour effectuer des travaux, des manœuvres, des consignations, des mesurages, et des essais en toute sécurité. En suivant ces modules, les techniciens et ingénieurs seront bien préparés pour travailler en toute sécurité dans des environnements électriques variés.
+TESTE

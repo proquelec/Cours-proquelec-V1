@@ -21,47 +21,13 @@ import { troncCommun2 } from './tronc-commun-2';
 import { nfC18510 } from './nf-c18-510';
 
 
-import { b0H0H0V } from './b0-h0-h0v';
-
-
-import { bsInterventions } from './bs-interventions';
-
-
-import { consignationHT } from './consignation-ht';
-
-
-
-import { mesuragesHT } from './mesurages-ht';
-import { manoeuvresHTB } from './manoeuvres-htb';
-import { travauxHT } from './travaux-ht';
-
-export const allModules: Module[] = [
-  nfC18510,
-  troncCommun1,
   troncCommun2,
   b0H0H0V,
   bsInterventions,
   consignationHT,
   mesuragesHT,
   manoeuvresHTB,
-  travauxHT,
-  essaisHT,
-  executantBT
-  ,chargeChantier
-  ,posePhotovoltaique
-  ,manoeuvresBT
-  ,manoeuvresHTA
-  ,mesuragesBT
-  ,interventionsBR
-  ,consignationBT
-  ,essaisBT
-  ,troncCommunHTB
-  ,techniqueHTA
-  ,techniqueHTB
-];
-
-export const getModuleById = (id: string): Module | undefined => {
-  return allModules.find(module => module.id === id);
+  bsInterventions
 };
 
 export const getModulesByCategory = (category: string): Module[] => {

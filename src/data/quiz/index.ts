@@ -1,4 +1,3 @@
-
 import { QuizQuestion } from '../../types';
 
 export const quizQuestions: Record<string, QuizQuestion[]> = {
@@ -67,46 +66,31 @@ export const quizQuestions: Record<string, QuizQuestion[]> = {
       correctAnswer: 1,
       explanation: 'Le chargé de travaux est la personne chargée d\'assurer la direction effective des travaux électriques ou non électriques sur le terrain.',
       timeLimit: 30
-    }
-  ],
-  'executant-bt': [
-    {
-      id: 'executant-bt-q1',
-      question: 'Quel est le rôle principal du chargé de travaux en BT ?',
-      options: [
-        'Réaliser les travaux',
-        'Superviser, planifier et assurer la sécurité',
-        'Contrôler les stocks',
-        'Rédiger les factures'
-      ],
-      correctAnswer: 1,
-      explanation: 'Le chargé de travaux planifie, supervise et assure la sécurité des opérations.',
-      timeLimit: 30
     },
     {
-      id: 'executant-bt-q2',
-      question: 'Quel EPI est obligatoire pour un exécutant BT ?',
+      id: 'nfc-q6',
+      question: 'Quels sont les 3 objectifs fondamentaux de la norme NF C 18-510 ?',
       options: [
-        'Gants isolants',
-        'Chaussures de sécurité',
-        'Lunettes de protection',
-        'Tous les précédents'
-      ],
-      correctAnswer: 3,
-      explanation: 'Tous ces EPI sont nécessaires pour garantir la sécurité en BT.',
-      timeLimit: 30
-    },
-    {
-      id: 'executant-bt-q3',
-      question: 'Que signifie l’habilitation B2V Essai ?',
-      options: [
-        'Travaux sous tension',
-        'Travaux hors tension avec essais',
-        'Travaux en haute tension',
-        'Travaux de consignation'
+        'Production, distribution, consommation',
+        'Prévention des risques, compétence des opérateurs, maîtrise de l\'information',
+        'Formation, habilitation, certification',
+        'Conception, réalisation, maintenance'
       ],
       correctAnswer: 1,
-      explanation: 'B2V Essai permet de réaliser des travaux hors tension avec essais en BT.',
+      explanation: 'Les 3 objectifs sont : 1) Prévention des risques électriques, 2) Compétence des opérateurs, 3) Cohérence et maîtrise de l\'information.',
+      timeLimit: 45
+    },
+    {
+      id: 'nfc-q7',
+      question: 'La norme NF C 18-510 s\'applique-t-elle aux installations de traction électrique ?',
+      options: [
+        'Oui, sans restriction',
+        'Oui, mais avec des adaptations',
+        'Non, c\'est une exclusion',
+        'Seulement pour la maintenance'
+      ],
+      correctAnswer: 2,
+      explanation: 'Les installations de traction électrique sont explicitement exclues du champ d\'application de la norme NF C 18-510.',
       timeLimit: 30
     }
   ],
@@ -121,10 +105,94 @@ export const quizQuestions: Record<string, QuizQuestion[]> = {
     },
     {
       id: 'tc1-q2',
-      question: 'À partir de quelle intensité le courant devient-il mortel ?',
+      question: 'À partir de quelle intensité le courant devient-il potentiellement mortel ?',
       options: ['10 mA', '30 mA', '40-50 mA', '80 mA'],
       correctAnswer: 2,
       explanation: 'À partir de 40-50 mA, le courant peut provoquer une fibrillation ventriculaire qui peut être mortelle.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc1-q3',
+      question: 'Quel est le seuil de non-lâcher (tétanisation musculaire) ?',
+      options: ['0,5 mA', '5 mA', '10 mA', '30 mA'],
+      correctAnswer: 2,
+      explanation: 'À partir de 10 mA, les muscles se contractent et il devient impossible de lâcher le conducteur (tétanisation).',
+      timeLimit: 30
+    },
+    {
+      id: 'tc1-q4',
+      question: 'Quelle est la résistance du corps humain avec une peau mouillée ?',
+      options: ['100000 Ω', '5000 Ω', '1000 Ω', '500 Ω'],
+      correctAnswer: 3,
+      explanation: 'Avec une peau mouillée, la résistance du corps humain chute à environ 500 Ω, augmentant considérablement le danger.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc1-q5',
+      question: 'Quelle est la première mesure de prévention dans la hiérarchie ?',
+      options: [
+        'Protection individuelle (EPI)',
+        'Protection collective',
+        'Suppression du risque',
+        'Formation du personnel'
+      ],
+      correctAnswer: 2,
+      explanation: 'La suppression du risque (consignation, TBT de sécurité) est la première et plus efficace mesure de prévention.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc1-q6',
+      question: 'Que signifie un contact électrique indirect ?',
+      options: [
+        'Contact avec une partie active sous tension',
+        'Contact avec une masse mise accidentellement sous tension',
+        'Contact à travers un isolant',
+        'Contact à distance par arc électrique'
+      ],
+      correctAnswer: 1,
+      explanation: 'Un contact indirect est un contact avec une masse (carcasse métallique) mise accidentellement sous tension par un défaut d\'isolement.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc1-q7',
+      question: 'Quelle température peut atteindre un arc électrique ?',
+      options: ['1000°C', '3000°C', '3000 à 20000°C', '50000°C'],
+      correctAnswer: 2,
+      explanation: 'Un arc électrique peut atteindre des températures de 3000 à 20000°C, causant des brûlures très graves.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc1-q8',
+      question: 'Quel est le domaine de tension de la Basse Tension (BT) en alternatif ?',
+      options: [
+        '50V à 500V',
+        '50V à 1000V', 
+        '120V à 1000V',
+        '230V à 400V'
+      ],
+      correctAnswer: 1,
+      explanation: 'La Basse Tension (BT) en courant alternatif va de 50V à 1000V selon la classification réglementaire.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc1-q9',
+      question: 'Pourquoi faut-il retirer les bijoux métalliques avant un travail électrique ?',
+      options: [
+        'Pour éviter le vol',
+        'Ils diminuent la résistance du corps',
+        'Ils gênent les mouvements',
+        'C\'est une obligation syndicale'
+      ],
+      correctAnswer: 1,
+      explanation: 'Les bijoux métalliques diminuent la résistance du corps et créent des points de contact privilégiés, augmentant le risque d\'électrisation.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc1-q10',
+      question: 'Combien y a-t-il de classes de gants isolants ?',
+      options: ['3 classes', '4 classes', '5 classes', '6 classes'],
+      correctAnswer: 3,
+      explanation: 'Il existe 5 classes de gants isolants (00, 0, 1, 2, 3, 4) correspondant à différents niveaux de tension.',
       timeLimit: 30
     }
   ],
@@ -135,6 +203,118 @@ export const quizQuestions: Record<string, QuizQuestion[]> = {
       options: ['3 étapes', '4 étapes', '5 étapes', '6 étapes'],
       correctAnswer: 1,
       explanation: 'La consignation comporte 4 étapes obligatoires : Séparation, Condamnation, Identification, Vérification (VAT).',
+      timeLimit: 30
+    },
+    {
+      id: 'tc2-q2',
+      question: 'Que signifie l\'acronyme VAT ?',
+      options: [
+        'Vérification Avant Travaux',
+        'Vérification d\'Absence de Tension',
+        'Validation d\'Arrêt Temporaire',
+        'Vérification d\'Appareillage de Test'
+      ],
+      correctAnswer: 1,
+      explanation: 'VAT signifie Vérification d\'Absence de Tension, étape cruciale de la consignation.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc2-q3',
+      question: 'Quand doit-on tester le VAT ?',
+      options: [
+        'Seulement avant utilisation',
+        'Seulement après utilisation', 
+        'Avant ET après utilisation',
+        'Une fois par jour'
+      ],
+      correctAnswer: 2,
+      explanation: 'Le VAT doit être testé avant ET après utilisation sur une installation sous tension connue pour vérifier son bon fonctionnement.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc2-q4',
+      question: 'Qui peut effectuer une déconsignation ?',
+      options: [
+        'N\'importe quel électricien',
+        'Le chargé de travaux',
+        'Seulement la personne qui a consigné',
+        'Le responsable de l\'entreprise'
+      ],
+      correctAnswer: 2,
+      explanation: 'Seule la personne qui a effectué la consignation peut procéder à la déconsignation.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc2-q5',
+      question: 'Quel est le premier geste en cas d\'accident électrique ?',
+      options: [
+        'Appeler les secours',
+        'Toucher la victime',
+        'Couper l\'alimentation électrique',
+        'Faire du bouche-à-bouche'
+      ],
+      correctAnswer: 2,
+      explanation: 'Le premier geste est de couper immédiatement l\'alimentation électrique pour protéger la victime et les secouristes.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc2-q6',
+      question: 'Que faire si le VAT ne fonctionne pas ?',
+      options: [
+        'Continuer avec un autre appareil',
+        'Arrêter immédiatement l\'intervention',
+        'Faire la VAT visuellement',
+        'Demander à un collègue'
+      ],
+      correctAnswer: 1,
+      explanation: 'Si le VAT ne fonctionne pas, il faut arrêter immédiatement toute intervention car on ne peut pas garantir l\'absence de tension.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc2-q7',
+      question: 'Combien de temps maximum pour dégager une victime d\'électrisation ?',
+      options: ['30 secondes', '1 minute', '2 minutes', '5 minutes'],
+      correctAnswer: 1,
+      explanation: 'Il faut dégager la victime en maximum 1 minute pour limiter les lésions, mais seulement après avoir coupé l\'alimentation.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc2-q8',
+      question: 'Quelle est la séquence des 3 P en cas d\'urgence ?',
+      options: [
+        'Prévenir - Protéger - Secourir',
+        'Protéger - Alerter - Secourir',
+        'Protéger - Prévenir - Soigner',
+        'Alerter - Protéger - Secourir'
+      ],
+      correctAnswer: 1,
+      explanation: 'La séquence est : Protéger (couper l\'électricité), Alerter (appeler les secours), Secourir (premiers gestes).',
+      timeLimit: 30
+    },
+    {
+      id: 'tc2-q9',
+      question: 'Pourquoi un examen médical est-il obligatoire après électrisation ?',
+      options: [
+        'C\'est une obligation légale',
+        'Les lésions internes peuvent apparaître plus tard',
+        'Pour rassurer la victime',
+        'Pour établir un rapport d\'accident'
+      ],
+      correctAnswer: 1,
+      explanation: 'L\'examen médical est obligatoire car les lésions internes (brûlures, troubles cardiaques) peuvent apparaître plusieurs heures après l\'accident.',
+      timeLimit: 30
+    },
+    {
+      id: 'tc2-q10',
+      question: 'Dans quel ordre doit-on retirer les protections lors de la déconsignation ?',
+      options: [
+        'Peu importe l\'ordre',
+        'Dans l\'ordre de la consignation',
+        'Dans l\'ordre inverse de la consignation',
+        'Selon les instructions du chef'
+      ],
+      correctAnswer: 2,
+      explanation: 'Lors de la déconsignation, il faut retirer les protections dans l\'ordre inverse de leur mise en place lors de la consignation.',
       timeLimit: 30
     }
   ],
@@ -151,228 +331,51 @@ export const quizQuestions: Record<string, QuizQuestion[]> = {
       correctAnswer: 2,
       explanation: 'Un titulaire B0 ne peut effectuer aucune intervention électrique, y compris les raccordements.',
       timeLimit: 30
+    },
+    {
+      id: 'b0-q2',
+      question: 'Quelle est la distance de sécurité en BT pour un B0 ?',
+      options: ['10 cm', '30 cm', '50 cm', '1 mètre'],
+      correctAnswer: 1,
+      explanation: 'En Basse Tension, la distance de sécurité à respecter pour un B0 est de 30 cm.',
+      timeLimit: 30
+    },
+    {
+      id: 'b0-q3',
+      question: 'Un B0 peut-il accéder seul à un local électrique ?',
+      options: [
+        'Oui, s\'il a les clés',
+        'Oui, s\'il est formé',
+        'Non, jamais seul',
+        'Oui, en journée seulement'
+      ],
+      correctAnswer: 2,
+      explanation: 'Un titulaire B0 ne peut jamais accéder seul à un local électrique, il doit toujours être accompagné et surveillé.',
+      timeLimit: 30
+    },
+    {
+      id: 'b0-q4',
+      question: 'Que doit faire un B0 en cas de doute sur la sécurité ?',
+      options: [
+        'Continuer prudemment',
+        'Demander à un collègue',
+        'Arrêter et demander',
+        'Improviser une solution'
+      ],
+      correctAnswer: 2,
+      explanation: 'En cas de doute, un B0 doit toujours arrêter son travail et demander des instructions à son surveillant.',
+      timeLimit: 30
+    },
+    {
+      id: 'b0-q5',
+      question: 'Quelle distance de sécurité en HT 63kV pour un H0 ?',
+      options: ['3 mètres', '4 mètres', '5 mètres', '7 mètres'],
+      correctAnswer: 1,
+      explanation: 'Pour une tension de 63kV à 90kV, la distance de sécurité est de 4 mètres.',
+      timeLimit: 30
     }
   ],
   'bs-interventions': [
-    {
-      id: 'bs-q1',
-      question: 'Quel est le rôle principal d’un titulaire BS ?',
-      options: [
-        'Réaliser des interventions générales',
-        'Remplacer et raccorder des équipements électriques en BT',
-        'Superviser les travaux HT',
-        'Aucune intervention autorisée'
-      ],
-      correctAnswer: 1,
-      explanation: 'Le titulaire BS est habilité à effectuer des interventions de remplacement et de raccordement en basse tension.',
-      timeLimit: 30
-    }
-  ],
-  'charge-chantier': [
-    {
-      id: 'cc-q1',
-      question: 'Quel est le rôle du chargé de chantier ?',
-      options: [
-        'Superviser et organiser les travaux',
-        'Réaliser les travaux seul',
-        'Contrôler uniquement les EPI',
-        'Aucune responsabilité'
-      ],
-      correctAnswer: 0,
-      explanation: 'Le chargé de chantier supervise, organise et contrôle les travaux d’ordre non électrique.',
-      timeLimit: 30
-    }
-  ],
-  'pose-photovoltaique': [
-    {
-      id: 'pv-q1',
-      question: 'Quel EPI est indispensable lors de la pose de panneaux photovoltaïques ?',
-      options: [
-        'Gants isolants',
-        'Harnais antichute',
-        'Lunettes de protection',
-        'Tous les précédents'
-      ],
-      correctAnswer: 3,
-      explanation: 'Tous ces EPI sont nécessaires pour garantir la sécurité lors de la pose.',
-      timeLimit: 30
-    }
-  ],
-  'manoeuvres-bt': [
-    {
-      id: 'mbt-q1',
-      question: 'Que permet l’habilitation BE Manœuvre ?',
-      options: [
-        'Réaliser des travaux sous tension',
-        'Réaliser des manœuvres en BT',
-        'Superviser les travaux HT',
-        'Aucune intervention autorisée'
-      ],
-      correctAnswer: 1,
-      explanation: 'L’habilitation BE Manœuvre permet de réaliser des manœuvres en basse tension.',
-      timeLimit: 30
-    }
-  ],
-  'manoeuvres-hta': [
-    {
-      id: 'mhta-q1',
-      question: 'Que permet l’habilitation HE manœuvre HTA ?',
-      options: [
-        'Réaliser des manœuvres en HTA',
-        'Réaliser des travaux sous tension',
-        'Superviser les travaux BT',
-        'Aucune intervention autorisée'
-      ],
-      correctAnswer: 0,
-      explanation: 'L’habilitation HE manœuvre HTA permet de réaliser des manœuvres en haute tension A.',
-      timeLimit: 30
-    }
-  ],
-  'mesurages-bt': [
-    {
-      id: 'mbt-q1',
-      question: 'Quel document est obligatoire pour un mesurage en BT ?',
-      options: [
-        'Fiche de mesurage',
-        'Autorisation d’accès',
-        'Instructions de sécurité',
-        'Tous les précédents'
-      ],
-      correctAnswer: 3,
-      explanation: 'Tous ces documents sont nécessaires pour garantir la sécurité lors d’un mesurage.',
-      timeLimit: 30
-    }
-  ],
-  'interventions-br': [
-    {
-      id: 'br-q1',
-      question: 'Que permet l’habilitation BR ?',
-      options: [
-        'Réaliser des interventions générales en BT',
-        'Réaliser des travaux sous tension',
-        'Superviser les travaux HT',
-        'Aucune intervention autorisée'
-      ],
-      correctAnswer: 0,
-      explanation: 'L’habilitation BR permet de réaliser des interventions générales en basse tension.',
-      timeLimit: 30
-    }
-  ],
-  'consignation-bt': [
-    {
-      id: 'cbt-q1',
-      question: 'Quel document atteste la consignation en BT ?',
-      options: [
-        'Fiche de manœuvre',
-        'Attestation de consignation',
-        'Rapport d’activité',
-        'Aucun document requis'
-      ],
-      correctAnswer: 1,
-      explanation: 'L’attestation de consignation est le document officiel pour la consignation en BT.',
-      timeLimit: 30
-    }
-  ],
-  'essais-bt': [
-    {
-      id: 'ebt-q1',
-      question: 'Quel EPI est obligatoire lors d’un essai en BT ?',
-      options: [
-        'Gants isolants',
-        'Chaussures de sécurité',
-        'Lunettes de protection',
-        'Tous les précédents'
-      ],
-      correctAnswer: 3,
-      explanation: 'Tous ces EPI sont nécessaires pour garantir la sécurité lors d’un essai en BT.',
-      timeLimit: 30
-    }
-  ],
-  'tronc-commun-htb': [
-    {
-      id: 'tchtb-q1',
-      question: 'Quel est l’objectif du tronc commun HTB ?',
-      options: [
-        'Connaître les fondamentaux, risques et organisation en HTB',
-        'Réaliser des travaux sous tension',
-        'Superviser les travaux BT',
-        'Aucune intervention autorisée'
-      ],
-      correctAnswer: 0,
-      explanation: 'Le tronc commun HTB vise à donner les bases pour intervenir en sécurité en HTB.',
-      timeLimit: 30
-    }
-  ],
-  'technique-hta': [
-    {
-      id: 'thta-q1',
-      question: 'Quel est l’objectif du module Technique HTA ?',
-      options: [
-        'Maîtriser les techniques et la sécurité en HTA',
-        'Réaliser des travaux sous tension',
-        'Superviser les travaux BT',
-        'Aucune intervention autorisée'
-      ],
-      correctAnswer: 0,
-      explanation: 'Le module Technique HTA vise à maîtriser les techniques et la sécurité en HTA.',
-      timeLimit: 30
-    }
-  ],
-  'technique-htb': [
-    {
-      id: 'thtb-q1',
-      question: 'Quel est l’objectif du module Technique HTB ?',
-      options: [
-        'Maîtriser les techniques et la sécurité en HTB',
-        'Réaliser des travaux sous tension',
-        'Superviser les travaux BT',
-        'Aucune intervention autorisée'
-      ],
-      correctAnswer: 0,
-      explanation: 'Le module Technique HTB vise à maîtriser les techniques et la sécurité en HTB.',
-      timeLimit: 30
-    }
-  ],
-  'essais-ht': [
-    {
-      id: 'essais-ht-q1',
-      question: 'Quel EPI est obligatoire lors d\'un essai en HT ?',
-      options: [
-        'Gants isolants',
-        'Chaussures de sécurité',
-        'Écran facial',
-        'Tous les précédents'
-      ],
-      correctAnswer: 3,
-      explanation: 'Tous les EPI cités sont obligatoires pour garantir la sécurité lors d\'un essai en HT.',
-      timeLimit: 30
-    },
-    {
-      id: 'essais-ht-q2',
-      question: 'Quelle est la première étape avant de réaliser un essai en HT ?',
-      options: [
-        'Rédiger le rapport',
-        'Préparer les matériels et vérifier les EPI',
-        'Analyser les résultats',
-        'Ranger les outils'
-      ],
-      correctAnswer: 1,
-      explanation: 'La préparation des matériels et la vérification des EPI sont indispensables avant tout essai.',
-      timeLimit: 30
-    },
-    {
-      id: 'essais-ht-q3',
-      question: 'Pourquoi rédiger un compte-rendu d\'essai ?',
-      options: [
-        'Pour la traçabilité et la sécurité',
-        'Pour faire plaisir au chef',
-        'Ce n\'est pas utile',
-        'Pour gagner du temps'
-      ],
-      correctAnswer: 0,
-      explanation: 'Le compte-rendu d\'essai permet d\'assurer la traçabilité et la sécurité des opérations.',
-      timeLimit: 30
-    },
     {
       id: 'bs-q1',
       question: 'Quelle est la puissance maximale autorisée pour un raccordement BS en monophasé ?',
@@ -380,8 +383,60 @@ export const quizQuestions: Record<string, QuizQuestion[]> = {
       correctAnswer: 2,
       explanation: 'L\'habilitation BS autorise les raccordements jusqu\'à 32A en monophasé.',
       timeLimit: 30
+    },
+    {
+      id: 'bs-q2',
+      question: 'Un BS doit-il effectuer une VAT avant intervention ?',
+      options: [
+        'Non, ce n\'est pas nécessaire',
+        'Oui, toujours',
+        'Seulement en HT',
+        'Seulement si demandé'
+      ],
+      correctAnswer: 1,
+      explanation: 'Un BS doit toujours effectuer une VAT avant toute intervention pour vérifier l\'absence de tension.',
+      timeLimit: 30
+    },
+    {
+      id: 'bs-q3',
+      question: 'Que peut faire un BS sur un circuit 25A triphasé ?',
+      options: [
+        'Toutes interventions',
+        'Interventions élémentaires seulement',
+        'Rien, dépassement de limite',
+        'Seulement du dépannage'
+      ],
+      correctAnswer: 1,
+      explanation: 'Un BS peut effectuer des interventions élémentaires sur un circuit 25A triphasé (limite BS).',
+      timeLimit: 30
+    },
+    {
+      id: 'bs-q4',
+      question: 'Un BS peut-il modifier un schéma électrique ?',
+      options: [
+        'Oui, si c\'est simple',
+        'Oui, avec autorisation',
+        'Non, jamais',
+        'Seulement en BT'
+      ],
+      correctAnswer: 2,
+      explanation: 'Un BS ne peut jamais modifier un schéma électrique, il ne fait que du remplacement à l\'identique.',
+      timeLimit: 30
+    },
+    {
+      id: 'bs-q5',
+      question: 'Quel outillage doit utiliser un BS ?',
+      options: [
+        'Outillage standard',
+        'Outillage isolé 1000V',
+        'Outillage isolé 500V',
+        'N\'importe quel outillage'
+      ],
+      correctAnswer: 1,
+      explanation: 'Un BS doit utiliser un outillage isolé 1000V adapté à la basse tension.',
+      timeLimit: 30
     }
-  ],
+  ]
 };
 
 export const getQuizForModule = (moduleId: string): QuizQuestion[] => {

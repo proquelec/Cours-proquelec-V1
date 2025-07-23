@@ -288,7 +288,7 @@ const AdvancedPresentationMode: React.FC<AdvancedPresentationModeProps> = ({
       ref={presentationRef}
       className={`${
         isFullscreen 
-          ? 'fixed inset-0 z-50 bg-black cursor-none' 
+          ? 'fixed inset-0 z-[9999] bg-white dark:bg-gray-900 cursor-none overflow-hidden' 
           : 'min-h-screen bg-gray-50 dark:bg-gray-900'
       } relative`}
     >
@@ -314,14 +314,14 @@ const AdvancedPresentationMode: React.FC<AdvancedPresentationModeProps> = ({
       {/* Contenu principal */}
       <div className={`${
         isFullscreen 
-          ? 'h-screen flex flex-col' 
+          ? 'h-screen w-screen flex flex-col overflow-hidden' 
           : 'flex-1 min-h-0 flex flex-col'
       }`}>
         
         {/* Zone de présentation */}
         <div className={`${
           isFullscreen 
-            ? 'flex-1 relative' 
+            ? 'flex-1 relative w-full h-full overflow-hidden' 
             : 'flex-1 min-h-0 relative'
         }`}>
           <AnimatePresence mode="wait">
@@ -331,7 +331,7 @@ const AdvancedPresentationMode: React.FC<AdvancedPresentationModeProps> = ({
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.3 }}
-              className="h-full"
+              className={`${isFullscreen ? 'h-full w-full overflow-hidden' : 'h-full'}`}
             >
               {renderMainContent()}
             </motion.div>
@@ -362,21 +362,62 @@ const AdvancedPresentationMode: React.FC<AdvancedPresentationModeProps> = ({
         </div>
 
         {/* Contrôles de présentation */}
-        <AdvancedPresentationControls
-          currentSlide={currentSlide}
-          totalSlides={module.slides.length}
-          isPlaying={isPlaying}
-          isFullscreen={isFullscreen}
-          isDrawing={isDrawing}
-          onPrevious={handlePrevious}
-          onNext={handleNext}
-          onPlayPause={handlePlayPause}
-          onStop={handleStop}
-          onToggleFullscreen={handleToggleFullscreen}
-          onToggleDrawing={() => setIsDrawing(!isDrawing)}
-          onClearAnnotations={() => setAnnotations([])}
-          onGoHome={onExit}
-        />
+        {!isFullscreen && (
+          <AdvancedPresentationControls
+            currentSlide={currentSlide}
+            totalSlides={module.slides.length}
+            isPlaying={isPlaying}
+            isFullscreen={isFullscreen}
+            isDrawing={isDrawing}
+            onPrevious={handlePrevious}
+            onNext={handleNext}
+            onPlayPause={handlePlayPause}
+            onStop={handleStop}
+            onToggleFullscreen={handleToggleFullscreen}
+            onToggleDrawing={() => setIsDrawing(!isDrawing)}
+            onClearAnnotations={() => setAnnotations([])}
+            onGoHome={onExit}
+          />
+        )}
+        
+        {/* Contrôles minimaux en mode plein écran (apparaissent au survol) */}
+        {isFullscreen && (
+          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-black/80 backdrop-blur-sm rounded-2xl p-3 opacity-0 hover:opacity-100 transition-opacity duration-300 z-50">
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={handlePrevious}
+                disabled={currentSlide === 0}
+                className="p-2 text-white hover:bg-white/20 rounded-lg transition-colors disabled:opacity-50"
+                title="Précédent (←)"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              
+              <span className="text-white text-sm font-medium px-3 py-1 bg-white/20 rounded-lg">
+                {currentSlide + 1} / {module.slides.length}
+              </span>
+              
+              <button
+                onClick={handleNext}
+                disabled={currentSlide === module.slides.length - 1}
+                className="p-2 text-white hover:bg-white/20 rounded-lg transition-colors disabled:opacity-50"
+                title="Suivant (→)"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+              
+              <div className="w-px h-6 bg-white/30 mx-2" />
+              
+              <button
+                onClick={handleToggleFullscreen}
+                className="p-2 text-white hover:bg-white/20 rounded-lg transition-colors"
+                title="Quitter le plein écran (Échap)"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Panneau latéral (mode fenêtré uniquement) */}

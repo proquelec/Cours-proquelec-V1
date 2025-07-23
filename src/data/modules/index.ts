@@ -20,7 +20,26 @@ import { troncCommun2 } from './tronc-commun-2';
 
 import { nfC18510 } from './nf-c18-510';
 
+export const allModules: Module[] = [
+  techniqueHTB,
+  techniqueHTA,
+  troncCommunHTB,
+  essaisBT,
+  consignationBT,
+  interventionsBR,
+  mesuragesBT,
+  manoeuvresHTA,
+  manoeuvresBT,
+  posePhotovoltaique,
+  chargeChantier,
+  executantBT,
+  essaisHT,
+  troncCommun1,
+  troncCommun2,
+  nfC18510
+];
 
+export const allModules2: Module[] = [
   troncCommun2,
   b0H0H0V,
   bsInterventions,
@@ -28,7 +47,7 @@ import { nfC18510 } from './nf-c18-510';
   mesuragesHT,
   manoeuvresHTB,
   bsInterventions
-};
+];
 
 export const getModulesByCategory = (category: string): Module[] => {
   if (category === 'all') return allModules;

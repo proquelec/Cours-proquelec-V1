@@ -118,22 +118,22 @@ const QuizSlide: React.FC<QuizSlideProps> = ({ questions, onComplete, isFullscre
     return (
       <div className={`${
         isFullscreen 
-          ? 'h-screen w-screen p-8 md:p-16 flex items-center justify-center bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800' 
+          ? 'h-screen w-screen p-8 md:p-12 lg:p-16 flex items-center justify-center bg-white dark:bg-gray-900 overflow-hidden' 
           : 'h-full w-full p-6 md:p-8 flex items-center justify-center bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800'
       }`}>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="text-center max-w-2xl"
+          className={`text-center ${isFullscreen ? 'max-w-5xl' : 'max-w-2xl'}`}
         >
           <div className="mb-8">
-            <div className={`text-6xl font-bold mb-4 ${getScoreColor(score)}`}>
+            <div className={`${isFullscreen ? 'text-8xl' : 'text-6xl'} font-bold mb-4 ${getScoreColor(score)}`}>
               {score}%
             </div>
-            <h2 className={`${isFullscreen ? 'text-4xl' : 'text-2xl'} font-bold text-gray-900 dark:text-white mb-4`}>
+            <h2 className={`${isFullscreen ? 'text-5xl lg:text-6xl' : 'text-2xl'} font-bold text-gray-900 dark:text-white mb-4`}>
               Quiz Terminé !
             </h2>
-            <p className={`${isFullscreen ? 'text-xl' : 'text-lg'} text-gray-600 dark:text-gray-400 mb-8`}>
+            <p className={`${isFullscreen ? 'text-2xl lg:text-3xl' : 'text-lg'} text-gray-600 dark:text-gray-400 mb-8`}>
               Vous avez obtenu {selectedAnswers.filter((answer, index) => answer === questions[index]?.correctAnswer).length} bonnes réponses sur {questions.length}
             </p>
           </div>
@@ -174,20 +174,20 @@ const QuizSlide: React.FC<QuizSlideProps> = ({ questions, onComplete, isFullscre
   return (
     <div className={`${
       isFullscreen 
-        ? 'h-screen w-screen p-8 md:p-16 flex items-center justify-center bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800' 
+        ? 'h-screen w-screen p-8 md:p-12 lg:p-16 flex items-center justify-center bg-white dark:bg-gray-900 overflow-hidden' 
         : 'h-full w-full p-6 md:p-8 flex items-center justify-center bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800'
     }`}>
-      <div className={`${isFullscreen ? 'max-w-4xl' : 'max-w-3xl'} w-full`}>
+      <div className={`${isFullscreen ? 'max-w-6xl' : 'max-w-3xl'} w-full`}>
         {/* Header avec progression */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+            <span className={`${isFullscreen ? 'text-lg' : 'text-sm'} font-medium text-gray-600 dark:text-gray-400`}>
               Question {currentQuestion + 1} sur {questions.length}
             </span>
             {timeLeft && (
-              <div className="flex items-center space-x-2 text-orange-600 dark:text-orange-400">
-                <Clock className="h-4 w-4" />
-                <span className="font-mono font-bold">{timeLeft}s</span>
+              <div className={`flex items-center space-x-2 text-orange-600 dark:text-orange-400`}>
+                <Clock className={`${isFullscreen ? 'h-6 w-6' : 'h-4 w-4'}`} />
+                <span className={`${isFullscreen ? 'text-xl' : 'text-base'} font-mono font-bold`}>{timeLeft}s</span>
               </div>
             )}
           </div>
@@ -209,7 +209,7 @@ const QuizSlide: React.FC<QuizSlideProps> = ({ questions, onComplete, isFullscre
           exit={{ opacity: 0, x: -50 }}
           className="mb-8"
         >
-          <h2 className={`${isFullscreen ? 'text-3xl' : 'text-2xl'} font-bold text-gray-900 dark:text-white mb-8 leading-tight`}>
+          <h2 className={`${isFullscreen ? 'text-4xl lg:text-5xl' : 'text-2xl'} font-bold text-gray-900 dark:text-white mb-8 leading-tight text-center`}>
             {question.question}
           </h2>
 
@@ -244,13 +244,13 @@ const QuizSlide: React.FC<QuizSlideProps> = ({ questions, onComplete, isFullscre
                   whileTap={!showResult ? { scale: 0.98 } : {}}
                 >
                   <div className="flex items-center justify-between">
-                    <span className={`${isFullscreen ? 'text-lg' : 'text-base'} font-medium`}>
+                    <span className={`${isFullscreen ? 'text-xl lg:text-2xl' : 'text-base'} font-medium`}>
                       {String.fromCharCode(65 + index)}. {option}
                     </span>
                     {showCorrection && (
                       <div>
-                        {isCorrect && <CheckCircle className="h-6 w-6 text-green-600" />}
-                        {isSelected && !isCorrect && <XCircle className="h-6 w-6 text-red-600" />}
+                        {isCorrect && <CheckCircle className={`${isFullscreen ? 'h-8 w-8' : 'h-6 w-6'} text-green-600`} />}
+                        {isSelected && !isCorrect && <XCircle className={`${isFullscreen ? 'h-8 w-8' : 'h-6 w-6'} text-red-600`} />}
                       </div>
                     )}
                   </div>
@@ -265,12 +265,12 @@ const QuizSlide: React.FC<QuizSlideProps> = ({ questions, onComplete, isFullscre
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg"
+                className={`mt-6 p-4 ${isFullscreen ? 'p-6' : 'p-4'} bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg`}
               >
-                <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">
+                <h4 className={`${isFullscreen ? 'text-xl' : 'text-base'} font-semibold text-blue-800 dark:text-blue-200 mb-2`}>
                   Explication :
                 </h4>
-                <p className="text-blue-700 dark:text-blue-300">
+                <p className={`${isFullscreen ? 'text-lg' : 'text-base'} text-blue-700 dark:text-blue-300`}>
                   {question.explanation}
                 </p>
               </motion.div>

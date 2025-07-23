@@ -230,9 +230,9 @@ const MediaViewer: React.FC<MediaViewerProps> = ({
   return (
     <div className={`${
       isFullscreen 
-        ? 'h-screen w-screen bg-black' 
+        ? 'h-screen w-screen bg-white dark:bg-gray-900 overflow-hidden' 
         : 'h-full w-full bg-gray-100 dark:bg-gray-800'
-    } relative`}>
+    } relative flex items-center justify-center`}>
       {type === 'image' && renderImage()}
       {type === 'video' && renderVideo()}
       {type === 'pdf' && renderPDF()}

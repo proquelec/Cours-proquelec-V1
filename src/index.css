@@ -119,13 +119,27 @@ button:focus {
 
 /* Styles pour le mode plein écran */
 .fullscreen-mode {
-  background: #000;
-  color: #fff;
+  background: #ffffff;
+  color: #1f2937;
+  overflow: hidden;
+}
+
+.dark .fullscreen-mode {
+  background: #111827;
+  color: #ffffff;
 }
 
 .fullscreen-mode .slide-content {
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   line-height: 1.4;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Animations fluides pour les transitions de diapositives */
